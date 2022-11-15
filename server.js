@@ -38,13 +38,6 @@ app.use(helmet())
 app.use(xss())
 app.use(mongoSanitize())
 
-app.get("/", (req, res) => {
-  res.json({ msg: "Welcome!" });
-});
-app.get("/api/v1/", (req, res) => {
-  res.json({ msg: "API" });
-});
-
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
